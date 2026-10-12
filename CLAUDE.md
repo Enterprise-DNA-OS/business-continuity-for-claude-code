@@ -22,9 +22,39 @@ Fill this in once. A worker with context knows. A worker without it guesses.
 
 | When the operator asks for... | Use this |
 |---|---|
-| <!-- TODO(author): one row per slash command --> | `/...` |
+| `/services` | Read service owners, impacts and recovery objectives |
+| `/plans` | Read plan versions, approvals and review dates |
+| `/dependencies` | Read suppliers, systems and recovery workarounds |
+| `/recovery-priorities` | Prioritise services by their recovery deadline |
+| `/dependency-gaps` | Find dependencies slower than the service they support |
+| `/shared-dependencies` | Find suppliers and systems shared by several services |
+| `/plan-readiness` | Review approval, exercise evidence and open actions |
+| `/exercise-calendar` | Plan the next continuity exercises |
+| `/exercises` | Review measured recovery and data loss |
+| `/actions` | Read corrective actions and completion evidence |
+| `/owner-workload` | Compare open and overdue actions by owner |
+| `/review-due` | Prepare the next month of plan reviews |
+| `/attention` | Find late, unowned and unapproved work |
+| `/compliance` | Check continuity record completeness against cited guidance |
+| `/history` | Read attributed record changes |
+| `/show` | Read one record and its full change history |
+| `/add` | Add a service, plan, dependency or corrective action |
+| `/update` | Revise a record and invalidate affected plan approval |
+| `/log` | Record an attributed plan note |
+| `/approve-plan` | Approve a tested plan after its high priority gaps close |
+| `/record-exercise` | Record an exercise against versioned recovery objectives |
+| `/raise-action` | Assign a corrective action from a plan or exercise |
+| `/close-action` | Verify action evidence as someone other than its owner |
+| `/import` | Rehearse and import saved Onspring records |
+| `/export` | Export every record, note and change log |
+| `/weekly-review` | Draft the weekly continuity review |
+| `/draft-recovery-pack` | Draft recovery priorities and unresolved gaps |
+| `/draft-exercise-report` | Draft exercise results and corrective action follow-up |
+| `/help` | Read supported commands and editable fields |
+| `/customise` | Change a field or policy with a tested migration |
+| `/new-view` | Add a branded read-only report |
 
-If an ask fits nothing here, run the CLI directly (`npm run <cli> -- --help`) and then propose a new command for it.
+If an ask fits nothing here, run the CLI directly (`npm run continuity -- help`) and then propose a new command for it.
 
 ## Hard rules
 
@@ -41,3 +71,7 @@ If an ask fits nothing here, run the CLI directly (`npm run <cli> -- --help`) an
 - `docs/` the thesis and the guide for moving off Onspring.
 
 Built by Enterprise DNA. Installed and run for you as part of Omni: https://enterprisedna.co/omni/instead-of/onspring
+
+## Continuity boundaries
+
+This is a planning and evidence system for a trusted coordinator. Never treat an approval label as a safety certification. Read docs/compliance.md before changing a rule. Recoveries and data loss are measured in hours. An exercise belongs to one plan version. Changes need fresh evidence and another person approves the plan. Do not store credentials or personal emergency contact details here. Draft communications only.

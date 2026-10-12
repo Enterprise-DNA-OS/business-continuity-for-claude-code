@@ -1,0 +1,1 @@
+{"columns":["Name","Owner","Site","Criticality","RTO Hours","RPO Hours","Maximum Outage Hours","Impact"],"rows":[{"recordId":501,"cells":["Claims administration","Hana","Auckland","high",8,2,24,"Client files wait"]}]}

@@ -1,13 +1,31 @@
 [
   {
     "name": "week",
-    "title": "This week",
-    "subtitle": "Business Continuity for Claude Code: what needs attention, rendered by npm run view",
+    "title": "Continuity review",
+    "subtitle": "Fictional records in demo mode. Read-only review, not emergency dispatch.",
     "sections": [
       {
+        "title": "Recovery readiness",
+        "sql": "select service,plan,version,status,review_due,exercise_due,latest_exercise,open_actions from readiness order by service"
+      },
+      {
         "title": "Needs attention",
-        "note": "TODO(author): point this at the industry's attention view (overdue, stuck, quiet).",
-        "sql": "select 'replace me' as item, 'TODO(author)' as why"
+        "sql": "select * from attention_items order by due_date nulls first,item"
+      }
+    ]
+  },
+  {
+    "name": "dependencies",
+    "title": "Recovery dependencies",
+    "subtitle": "Compare recovery evidence with agreed service objectives.",
+    "sections": [
+      {
+        "title": "Dependency gaps",
+        "sql": "select service,dependency,rto_hours,recovery_hours,gap_hours,verified_on from dependency_gaps order by gap_hours desc,service"
+      },
+      {
+        "title": "Record checks",
+        "sql": "select * from compliance_findings order by rule,item"
       }
     ]
   }

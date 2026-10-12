@@ -1,11 +1,51 @@
 [
   {
-    "name": "example",
-    "title": "TODO(author): the first document this industry must produce",
-    "for_each": "select gen_random_uuid() as id, 'Example' as name",
+    "name": "recovery-plan",
+    "title": "Recovery plan review copy",
+    "for_each": "select id,name from plans order by name",
     "file": "name",
     "sections": [
-      { "title": "Details", "sql": "select 'replace me' as item, $1::text as record_id" }
+      {
+        "title": "Approval and dates",
+        "note": "Check version and status before use. This is a review copy, not an emergency instruction issued to staff.",
+        "sql": "select name,version,status,owner,approved_by,review_due,exercise_due from plans where id=$1"
+      },
+      {
+        "title": "Activation and recovery",
+        "sql": "select activation,recovery_steps,communications,contact_role from plans where id=$1"
+      },
+      {
+        "title": "Service objectives",
+        "sql": "select s.name,s.impact,s.rto_hours,s.rpo_hours,s.max_outage_hours from services s join plans p on p.service_id=s.id where p.id=$1"
+      },
+      {
+        "title": "Dependencies and alternatives",
+        "sql": "select d.name,d.owner,d.recovery_hours,d.workaround,d.evidence,d.verified_on from dependencies d join plans p on p.service_id=d.service_id where p.id=$1 order by d.name"
+      },
+      {
+        "title": "Open actions",
+        "sql": "select name,owner,due_date,severity from actions where plan_id=$1 and status='open' order by due_date"
+      }
+    ]
+  },
+  {
+    "name": "exercise-report",
+    "title": "Exercise outcome and follow-up",
+    "for_each": "select id,name from exercises order by name",
+    "file": "name",
+    "sections": [
+      {
+        "title": "Exercise record",
+        "sql": "select name,scenario,exercised_on,plan_version,actor,evidence,lessons from exercises where id=$1"
+      },
+      {
+        "title": "Measured recovery",
+        "sql": "select target_rto,recovery_hours,target_rpo,data_loss_hours,outcome from exercises where id=$1"
+      },
+      {
+        "title": "Corrective actions",
+        "sql": "select name,owner,due_date,severity,status,evidence from actions where exercise_id=$1 order by due_date"
+      }
     ]
   }
 ]

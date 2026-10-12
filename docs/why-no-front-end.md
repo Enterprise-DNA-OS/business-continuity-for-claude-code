@@ -1,24 +1,9 @@
-# Why there is no front end
+# Why this is a database and commands
 
-Onspring is a database with a subscription. The tables underneath it are ordinary: a few entities, a few relationships, a handful of workflows you repeat every week. What you pay for is the layer on top that lets people who do not write SQL get at those tables. Screens, filters, dashboards, forms.
+A coordinator spends the week asking which recovery plans are stale, what failed the last exercise and who still owes evidence. Those questions are joins across records. A coding agent can run them and write a new query when the business changes.
 
-That layer used to be the whole product, because talking to a database was hard. It is not hard any more. Open this folder in Claude Code, describe what you want, and it writes the query, runs it, and explains the answer. Ask a question the dashboard never had a chart for and you still get an answer.
+The free base runs locally with PGlite or on a Postgres database you control. It supplies read-only branded HTML reports and printable recovery plans, not a browser application. Claude Code, Codex, OpenCode and Cursor use the same instructions and CLI.
 
-## What you gain
+A commercial platform gives teams authenticated self-service, mobile access, alerts, integrations and centrally available documents. This base has none of those services. HTML reports are snapshots. Keep reviewed plans in an approved offline location and test that staff can reach them during an outage. Do not depend on a laptop or a coding-agent subscription to coordinate a live emergency.
 
-- **Better answers.** A dashboard shows what the vendor decided to chart. Here you ask your own question, in your own words, and get it answered against your own data.
-- **No seats.** Everyone who needs to look can look. The bill does not grow with headcount.
-- **Your data in your Postgres.** Plain tables. Back them up, query them from anything, leave any time. There is no export step because there is nothing to leave.
-- **A process that matches you.** When your way of working changes, you add a command. You do not wait for a feature request to clear.
-
-## What you give up
-
-- **A visual board.** Stages are a table you ask about, not cards you drag.
-- **A phone app.** It runs where Claude Code runs.
-- **A vendor help desk.** This is open source. Enterprise DNA supports the installed version for businesses that want someone to call.
-
-## Who this fits
-
-Small teams who already use Claude Code, or who would rather learn to ask than learn another interface. If your team needs a screen to look at all day, keep Onspring. If you need the answers more than the screens, this is cheaper, faster and yours.
-
-Installed and run for you: https://enterprisedna.co/omni/instead-of/onspring
+Omni by Enterprise DNA builds the access, screens and connections your organisation needs, with a setup fee followed by a retainer. The planning database stays yours. No safety certification or guaranteed recovery is implied.
